@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Karim Guida | Data & Analytics Portfolio</title>
 
-  <!-- Bootstrap 5 (no jQuery needed) -->
+  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-
 
   <style>
     :root{
@@ -34,7 +33,7 @@
       color: #fff;
       border-bottom: 1px solid var(--border);
     }
-    .hero .lead { color: var(--muted); max-width: 58ch; }
+    .hero .lead { color: var(--muted); max-width: 62ch; }
     .hero .meta { color: rgba(255,255,255,.7); font-size: .95rem; }
     .avatar {
       width: 160px; height: 160px; object-fit: cover;
@@ -53,26 +52,27 @@
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,.18);
       background: #fff;
-    }
-    .kcard-dark {
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--border);
-      border-radius: 16px;
+      height: 100%;
     }
     .project-thumb {
       height: 170px; width: 100%; object-fit: cover;
       border-bottom: 1px solid rgba(0,0,0,.06);
+      display: block;
+    }
+    .project-meta {
+      color: rgba(0,0,0,.65);
+      font-size: .95rem;
     }
 
     /* SKILLS */
     .skill-chip {
-      border: 1px solid rgba(0,0,0,.08);
+      border: 1px solid rgba(0,0,0,.10);
       border-radius: 999px;
       padding: .45rem .75rem;
       font-size: .95rem;
       background: #fff;
+      line-height: 1;
     }
-    .skill-chip small { color: rgba(0,0,0,.55); }
 
     /* FOOTER */
     footer {
@@ -82,10 +82,12 @@
     }
     footer a { color: #fff; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
-    
-  </style>
- 
 
+    /* Buttons: keep consistent size in project cards */
+    .btn-card {
+      border-radius: 12px;
+    }
+  </style>
 </head>
 
 <body>
@@ -98,11 +100,17 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
         <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
         <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
         <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <!-- Optional resume button -->
+        <li class="nav-item ms-lg-3">
+          <a class="btn btn-outline-light btn-sm" href="./Karim_Guida_Resume.pdf" target="_blank" rel="noopener">
+            <i class="bi bi-file-earmark-text me-1"></i>Resume
+          </a>
+        </li>
       </ul>
     </div>
   </div>
@@ -117,24 +125,33 @@
         <h1 class="display-5 fw-bold mb-3">Data & Analytics Portfolio</h1>
         <p class="lead mb-4">
           I turn messy data into clear decisions using <strong>SQL</strong>, <strong>Python</strong>, and <strong>Power BI</strong>.
-          I work across data analysis, dashboards, and applied machine learning, bringing strong quantitative training to practical business use cases.      </p>
+          I build analytics-ready datasets (ETL), dashboards, and applied machine learning models with practical, business-focused delivery.
+        </p>
 
         <div class="d-flex flex-wrap gap-2">
-          <a class="btn btn-primary btn-lg" href="#projects">View Projects</a>
-          <a class="btn btn-outline-light btn-lg" href="https://github.com/KarimGuida" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn btn-outline-light btn-lg" href="https://www.linkedin.com/in/karim-guida/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn btn-outline-light btn-lg" href="mailto:guida.karim@gmail.com">Email</a>
+          <a class="btn btn-primary btn-lg" href="#projects"><i class="bi bi-kanban me-2"></i>View Projects</a>
+          <a class="btn btn-outline-light btn-lg" href="./Karim_Guida_Resume.pdf" target="_blank" rel="noopener">
+            <i class="bi bi-file-earmark-text me-2"></i>Resume
+          </a>
+          <a class="btn btn-outline-light btn-lg" href="https://github.com/KarimGuida" target="_blank" rel="noopener">
+            <i class="bi bi-github me-2"></i>GitHub
+          </a>
+          <a class="btn btn-outline-light btn-lg" href="https://www.linkedin.com/in/karim-guida/" target="_blank" rel="noopener">
+            <i class="bi bi-linkedin me-2"></i>LinkedIn
+          </a>
+          <a class="btn btn-outline-light btn-lg" href="mailto:guida.karim@gmail.com">
+            <i class="bi bi-envelope me-2"></i>Email
+          </a>
         </div>
       </div>
 
       <div class="col-lg-4 text-lg-end text-center">
-        <!-- Update path to your image -->
         <img class="avatar" src="./images/about/portfolio2.jpg" alt="Karim Guida headshot">
         <div class="mt-3 meta">
           <span class="badge text-bg-light me-1">SQL</span>
           <span class="badge text-bg-light me-1">Python</span>
           <span class="badge text-bg-light me-1">Power BI</span>
-          <span class="badge text-bg-light">Analytics</span>
+          <span class="badge text-bg-light">AWS Basics</span>
         </div>
       </div>
     </div>
@@ -147,9 +164,11 @@
     <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-4">
       <div>
         <h2 class="section-title mb-1">Featured Projects</h2>
-        <p class="text-muted mb-0">Selected projects with concise summaries and links to source code.</p>
+        <p class="text-muted mb-0">Selected projects with concise summaries and links.</p>
       </div>
-      <a class="btn btn-outline-secondary" href="https://github.com/KarimGuida" target="_blank" rel="noopener">See all on GitHub</a>
+      <a class="btn btn-outline-secondary" href="https://github.com/KarimGuida" target="_blank" rel="noopener">
+        <i class="bi bi-github me-2"></i>See all on GitHub
+      </a>
     </div>
 
     <div id="projectsGrid" class="row g-4"></div>
@@ -159,32 +178,42 @@
 <!-- SKILLS -->
 <section id="skills" class="py-5 bg-light">
   <div class="container">
-    <h2 class="section-title mb-2">Core Skills</h2>
-    <p class="text-muted mb-4">Core skills relevant to analytics, BI, and junior data science roles.</p>
+    <h2 class="section-title mb-2">Skills</h2>
+    <p class="text-muted mb-4">A clean overview of the tools and concepts I use across analytics, BI, ML, and ETL.</p>
 
     <div class="row g-3">
       <div class="col-lg-6">
-        <div class="p-4 bg-white rounded-4 border">
-          <h5 class="fw-bold mb-3">Data & BI</h5>
+        <div class="p-4 bg-white rounded-4 border h-100">
+          <h5 class="fw-bold mb-3"><i class="bi bi-bar-chart-line me-2"></i>Data & BI</h5>
           <div class="d-flex flex-wrap gap-2" id="skillsData"></div>
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="p-4 bg-white rounded-4 border">
-          <h5 class="fw-bold mb-3">ML & Engineering</h5>
+        <div class="p-4 bg-white rounded-4 border h-100">
+          <h5 class="fw-bold mb-3"><i class="bi bi-cpu me-2"></i>Machine Learning</h5>
           <div class="d-flex flex-wrap gap-2" id="skillsML"></div>
         </div>
       </div>
     </div>
 
-    <div class="mt-4 p-4 bg-white rounded-4 border">
-      <h5 class="fw-bold mb-3">Tools</h5>
-      <div class="d-flex flex-wrap gap-2" id="skillsTools"></div>
+    <div class="row g-3 mt-1">
+      <div class="col-lg-6">
+        <div class="p-4 bg-white rounded-4 border h-100">
+          <h5 class="fw-bold mb-3"><i class="bi bi-wrench-adjustable me-2"></i>Libraries & Tools</h5>
+          <div class="d-flex flex-wrap gap-2" id="skillsTools"></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="p-4 bg-white rounded-4 border h-100">
+          <h5 class="fw-bold mb-3"><i class="bi bi-cloud me-2"></i>AWS (Cloud Practitioner)</h5>
+          <div class="d-flex flex-wrap gap-2" id="skillsAWS"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PUBLICATIONS (COLLAPSED) -->
+<!-- PUBLICATIONS -->
 <section id="publications" class="py-5">
   <div class="container">
     <h2 class="section-title mb-2">Publications</h2>
@@ -226,9 +255,13 @@
             Want to discuss roles in analytics / BI / junior data science? I respond quickly.
           </p>
           <div class="d-flex flex-wrap gap-2">
-            <a class="btn btn-dark" href="mailto:guida.karim@gmail.com">Email me</a>
-            <a class="btn btn-outline-dark" href="https://www.linkedin.com/in/karim-guida/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn btn-outline-dark" href="https://github.com/KarimGuida" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn-dark" href="mailto:guida.karim@gmail.com"><i class="bi bi-envelope me-2"></i>Email me</a>
+            <a class="btn btn-outline-dark" href="https://www.linkedin.com/in/karim-guida/" target="_blank" rel="noopener">
+              <i class="bi bi-linkedin me-2"></i>LinkedIn
+            </a>
+            <a class="btn btn-outline-dark" href="https://github.com/KarimGuida" target="_blank" rel="noopener">
+              <i class="bi bi-github me-2"></i>GitHub
+            </a>
           </div>
         </div>
       </div>
@@ -250,7 +283,6 @@
 <!-- Bootstrap bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-
 <script>
   // ====== EDIT THESE LISTS ONLY (easy maintenance) ======
   const projects = [
@@ -262,31 +294,49 @@
         "Problem: Implement a loyalty program where customers earn and redeem points from purchases.",
         "Approach: Designed relational schema + procedures with validation, auditability, and business rules.",
         "Outcome: Reporting queries to track balances, redemptions, and loyalty performance."
-     ],
-     github: "https://github.com/KarimGuida/retail-loyalty-points-sql"
+      ],
+      github: "https://github.com/KarimGuida/retail-loyalty-points-sql",
+      demo: "",        // optional
+      caseStudy: ""    // optional
     },
     {
-  title: "Ottawa Police Data ETL (Python → SQL)",
-  img: "./images/projects/ottawa-police-etl.jpg",
-  tags: ["Python", "Pandas", "ETL", "SQL Server"],
+      title: "Ottawa Police Data ETL (Python → SQL)",
+      img: "./images/projects/ottawa-police-etl.jpg",
+      tags: ["Python", "Pandas", "ETL", "SQL Server"],
+      bullets: [
+        "Problem: Prepare public police datasets for analytics and reporting.",
+        "Approach: Built an ETL pipeline (extract → clean/validate → load) and structured data into SQL tables.",
+        "Outcome: Analytics-ready database with a documented pipeline and ERD."
+      ],
+      github: "https://github.com/KarimGuida/ottawa-police-etl",
+      demo: "",
+      caseStudy: ""
+    },
+  {
+  title: "COVID-19 Global Visual Analytics (Power BI)",
+  img: "./images/projects/covid-19-powerbi-visual-analytics.jpg",
+  tags: ["Power BI", "DAX", "Power Query", "Time Series", "Public Data (OWID)"],
   bullets: [
-    "Problem: Prepare public police datasets for analytics and reporting.",
-    "Approach: Built an ETL pipeline (extract → clean/validate → load) and structured data into SQL tables.",
-    "Outcome: Analytics-ready database with a documented pipeline and ERD."
+    "Problem: Summarize global COVID-19 trends across cases, deaths, and vaccination coverage.",
+    "Approach: Built an interactive Power BI report with Power Query cleaning and DAX KPIs.",
+    "Outcome: Clear dashboards for global trends, country/continent comparison, and vaccination vs fatality."
   ],
-  github: "https://github.com/KarimGuida/ottawa-police-etl"
-  },
-
+  github: "https://github.com/KarimGuida/covid-19-powerbi-visual-analytics",
+  demo: "https://karimguida.github.io/covid-19-powerbi-visual-analytics/",
+  caseStudy: ""
+},
     {
       title: "Predictive Modeling of Housing Prices",
       img: "./images/projects/House_price_prediction.jpg",
       tags: ["Regression", "Feature Engineering", "Pipelines"],
       bullets: [
         "Problem: Predict housing prices from engineered features.",
-        "Approach: Ridge / polynomial pipelines, preprocessing, evaluation.",
+        "Approach: Ridge + polynomial pipelines, preprocessing, evaluation.",
         "Outcome: Reproducible workflow focused on generalization and model selection."
       ],
-      github: "https://github.com/KarimGuida/housing-price-prediction"
+      github: "https://github.com/KarimGuida/housing-price-prediction",
+      demo: "",
+      caseStudy: ""
     },
     {
       title: "Black Friday Sales Prediction",
@@ -297,7 +347,9 @@
         "Approach: Train & compare ML models after preprocessing.",
         "Outcome: Best model selected and predictions generated for analysis."
       ],
-      github: "https://github.com/KarimGuida/black-friday-sales-prediction"
+      github: "https://github.com/KarimGuida/black-friday-sales-prediction",
+      demo: "",
+      caseStudy: ""
     },
     {
       title: "Customer Churn Prediction",
@@ -308,7 +360,9 @@
         "Approach: Encode categories, train baseline + boosted models.",
         "Outcome: Stronger performance via prepared features + model selection."
       ],
-      github: "https://github.com/KarimGuida/customer-churn-prediction"
+      github: "https://github.com/KarimGuida/customer-churn-prediction",
+      demo: "",
+      caseStudy: ""
     },
     {
       title: "Sentiment Analysis of Reviews",
@@ -319,7 +373,9 @@
         "Approach: Text preprocessing + multiple classifiers.",
         "Outcome: Best model chosen using test performance."
       ],
-      github: "https://github.com/KarimGuida/sentiment-analysis"
+      github: "https://github.com/KarimGuida/sentiment-analysis",
+      demo: "",
+      caseStudy: ""
     },
     {
       title: "Movie Rating Prediction",
@@ -330,7 +386,9 @@
         "Approach: Cleaning + model comparison across regressors.",
         "Outcome: Improved results through better preprocessing and model choice."
       ],
-      github: "https://github.com/KarimGuida/imdb-ratings-prediction"
+      github: "https://github.com/KarimGuida/imdb-ratings-prediction",
+      demo: "",
+      caseStudy: ""
     },
     {
       title: "FIFA 19 Player Analysis",
@@ -341,19 +399,31 @@
         "Approach: EDA + visual analytics on player trends and positions.",
         "Outcome: Optimized lineups for multiple formations."
       ],
-      github: "https://github.com/KarimGuida/fifa19-player-analysis"
+      github: "https://github.com/KarimGuida/fifa19-player-analysis",
+      demo: "",
+      caseStudy: ""
     }
   ];
 
   const skills = {
     data: [
-      "Data Analysis", "Reporting", "Dashboards", "Exploratory Data Analysis", "Data Cleaning", "Data Modeling"
+      "Data Cleaning", "Exploratory Data Analysis (EDA)", "Reporting", "Dashboards",
+      "Data Modeling", "Dimensional Modeling (Star Schema)", "KPI Design", "DAX (Power BI)"
     ],
     ml: [
-      "Machine Learning", "Model Evaluation", "Feature Engineering", "Regression", "Classification", "Basic NLP"
+      "Regression", "Classification", "Feature Engineering", "Model Evaluation",
+      "Train/Test Split", "Cross-Validation", "Hyperparameter Tuning", "Basic NLP"
     ],
     tools: [
-      "SQL", "Microsoft SQL Server", "Python", "Pandas", "NumPy", "Jupyter", "Power BI", "Tableau", "Git"
+      "Python", "SQL", "SQL Server", "Power BI", "Tableau",
+      "Pandas", "NumPy", "Matplotlib", "Seaborn",
+      "scikit-learn", "XGBoost",
+      "Jupyter", "Git/GitHub"
+    ],
+    aws: [
+      "IAM", "S3", "EC2", "RDS", "VPC", "CloudWatch",
+      "AWS Shared Responsibility Model", "Pricing & Billing Basics",
+      "Well-Architected (Basics)", "Security Best Practices (Basics)"
     ]
   };
 
@@ -364,38 +434,53 @@
   ];
 
   // ====== RENDER ======
+  function safeLink(url) {
+    return typeof url === "string" && url.trim().length > 0 ? url.trim() : "";
+  }
+
   function renderProjects() {
-    const grid = document.getElementById("projectsGrid");
-    grid.innerHTML = projects.map(p => `
-      <div class="col-md-6 col-lg-4">
-        <div class="kcard h-100">
-          <img class="project-thumb" src="${p.img}" alt="${p.title}">
-          <div class="p-3 d-flex flex-column h-100">
-            <div>
-              <h5 class="fw-bold mb-2">${p.title}</h5>
-              <div class="d-flex flex-wrap gap-2 mb-3">
-                ${p.tags.map(t => `<span class="badge text-bg-light border">${t}</span>`).join("")}
-              </div>
-              <ul class="mb-3">
-                ${p.bullets.map(b => `<li>${b}</li>`).join("")}
-              </ul>
+  const grid = document.getElementById("projectsGrid");
+  grid.innerHTML = projects.map(p => `
+    <div class="col-md-6 col-lg-4">
+      <div class="kcard h-100 d-flex flex-column">
+        <img class="project-thumb" src="${p.img}" alt="${p.title}">
+        <div class="p-3 d-flex flex-column flex-grow-1">
+          <div>
+            <h5 class="fw-bold mb-2">${p.title}</h5>
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              ${p.tags.map(t => `<span class="badge text-bg-light border">${t}</span>`).join("")}
             </div>
-            <div class="mt-auto">
-              <a class="btn btn-outline-secondary w-100" target="_blank" rel="noopener" href="${p.github}">
-                <i class="bi bi-github me-2"></i>View Code on GitHub
-              </a>
-            </div>
+            <ul class="mb-3">
+              ${p.bullets.map(b => `<li>${b}</li>`).join("")}
+            </ul>
           </div>
+
+          <!-- Button area -->
+          <div class="mt-auto d-grid gap-2">
+  ${p.demo ? `
+    <a class="btn btn-primary w-100" target="_blank" rel="noopener" href="${p.demo}">
+      <i class="bi bi-box-arrow-up-right me-2"></i>View Demo
+    </a>
+  ` : ``}
+
+  <a class="btn btn-outline-secondary w-100" target="_blank" rel="noopener" href="${p.github}">
+    <i class="bi bi-github me-2"></i>View Code on GitHub
+  </a>
+</div>
+
         </div>
       </div>
-    `).join("");
-  }
+    </div>
+  `).join("");
+}
+
 
   function renderSkills() {
     const mkChip = (label) => `<span class="skill-chip">${label}</span>`;
     document.getElementById("skillsData").innerHTML = skills.data.map(mkChip).join("");
     document.getElementById("skillsML").innerHTML = skills.ml.map(mkChip).join("");
     document.getElementById("skillsTools").innerHTML = skills.tools.map(mkChip).join("");
+    document.getElementById("skillsAWS").innerHTML = skills.aws.map(mkChip).join("");
   }
 
   function renderPubs() {
@@ -409,5 +494,6 @@
   renderSkills();
   renderPubs();
 </script>
+
 </body>
 </html>
